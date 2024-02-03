@@ -2,6 +2,10 @@ pipeline {
     agent {
         label 'dev'
     }
+    
+    environment {
+        APPLICATION_NAME = "spring-first-app-jenkins-ci-pipeline"
+    }
 
     stages {
         stage ('Workspace Cleanup') {
@@ -16,9 +20,13 @@ pipeline {
             }  
         }
 
-        stage ('Demo Image Tag') {
+        stage ('Update Deployment Tag') {
             steps {
-                echo '${IMAGE_TAG}'
+                sh '''
+                    cat deployment.yaml
+                    sed -i 's/${APPLICATION_NAME}.*/${APPLICATION_NAME}:${IMAGE_TAG}/g' deployment.yaml
+                    cat deployment.yaml
+                '''
             }
         }
 
