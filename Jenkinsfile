@@ -18,7 +18,7 @@ pipeline {
 
         stage ('Demo Image Tag') {
             steps {
-                sh '${IMAGE_TAG}'
+                echo '${IMAGE_TAG}'
             }
         }
 
