@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spring-first-app
-          image: devopstech24/spring-first-app-jenkins-ci-pipeline:1.0.0-80
+          image: devopstech24/spring-first-app-jenkins-ci-pipeline:1.0.0-81
           resources:
             limits:
               memory: "256Mi"
