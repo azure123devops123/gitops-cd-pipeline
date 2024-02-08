@@ -4,7 +4,7 @@ pipeline {
     }
     
     environment {
-        APPLICATION_NAME = "spring-first-app-jenkins-ci-pipeline"
+        APPLICATION_NAME = "java-spring-app-ci-pipeline"
 
         GITHUB_USERNAME = "devopstech24"
         EMAIL = "azure123.devops123@gmail.com"
@@ -19,7 +19,7 @@ pipeline {
 
         stage ('Git Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/azure123devops123/gitops-cd-pipeline'
+                git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/azure123devops123/gitops-cd-pipeline'
             }  
         }
 
@@ -46,7 +46,7 @@ pipeline {
                     git commit -m "Updated Deployment Manifest"
                 """
                 // Use Snippet Generator for code => withCredentials
-                withCredentials([gitUsernamePassword(credentialsId: 'git-cred', gitToolName: 'Default')]) {
+                withCredentials([gitUsernamePassword(credentialsId: 'github-cred', gitToolName: 'Default')]) {
                     sh "git push https://github.com/azure123devops123/gitops-cd-pipeline main"
                 }
             }
