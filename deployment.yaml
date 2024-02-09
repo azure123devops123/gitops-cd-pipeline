@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: java-spring-app
-          image: devopstech24/java-spring-app-ci-pipeline:CHANGE_ME
+          image: devopstech24/java-spring-app-ci-pipeline:1.0.0-28
           resources:
             limits:
               memory: "256Mi"
