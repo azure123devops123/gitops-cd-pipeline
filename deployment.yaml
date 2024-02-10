@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: java-spring-app
-          image: devopstech24/java-spring-app-ci-pipeline:1.0.0-29
+          image: devopstech24/java-spring-app-ci-pipeline:1.0.0-30
           resources:
             limits:
               memory: "256Mi"
