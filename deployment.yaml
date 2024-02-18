@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: java-spring-app-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: java-spring-app
@@ -29,5 +29,5 @@ spec:
   type: NodePort
   ports:
     - protocol: TCP
-      port: 8085
+      port: 8088
       targetPort: 8080
