@@ -14,10 +14,6 @@ spec:
     spec:
       containers:
         - name: java-spring-app
-          image: devopstech24/java-spring-app-ci-pipeline:1.0.0-38
-          # resources:
-          #   limits:
-          #     memory: "256Mi"
-          #     cpu: "500m"
+          image: devopstech24/java-spring-app-ci-pipeline:1.0.0-39
           ports:
             - containerPort: 8080
