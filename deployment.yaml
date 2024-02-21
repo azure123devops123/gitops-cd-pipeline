@@ -33,8 +33,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-   -  targetPort: 8080
-      port: 8080
+   -  port: 8080
+      targetPort: 8080
   selector: 
       name: java-spring-app-pod
       app: java-spring-app
