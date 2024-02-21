@@ -3,8 +3,9 @@ kind: Deployment
 metadata:
   name: java-spring-app-deployment
   lables:
-      name: java-spring-app-deployment
+      # name: java-spring-app-deployment
       app: myapp
+      type: front-end
 spec:
   template:
     metadata:
