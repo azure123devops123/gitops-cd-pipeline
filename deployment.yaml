@@ -8,14 +8,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: spring
+      app: java-spring-app
   template:
     metadata:
       labels:
-        app: spring
+        app: java-spring-app
     spec:
       containers:
-      - name: spring
+      - name: java-spring-app
         image: devopstech24/java-spring-app-ci-pipeline:60
         ports:
         - containerPort: 8080
