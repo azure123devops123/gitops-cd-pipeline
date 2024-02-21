@@ -3,17 +3,23 @@ kind: Deployment
 metadata:
   name: java-spring-app-deployment
   lables:
-      # name: java-spring-app-deployment
-      app: myapp
-      type: front-end
+      name: java-spring-app-deployment
+      app: java-spring-app
 spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      name: java-spring-app-pod
+      app: java-spring-app
   template:
     metadata:
       labels:
-        app: myapp
-        type: front-end
+        name: java-spring-app-pod
+        app: java-spring-app
     spec:
       containers:
         - name: java-spring-app
           image: devopstech24/java-spring-app-ci-pipeline:60
-  replicas: 2
+          ports:
+          - containerPort: 8080
+  
