@@ -4,13 +4,10 @@ metadata:
   name: java-spring-application-service
   labels:
       name: java-spring-application-service
-      app:  myapp
+      app: java-spring-app
 spec:
   type: NodePort
   ports:
    -  targetPort: 8080
       port: 8080
       nodePort: 30008
-  selector:
-      app: myapp
-      type: front-end
