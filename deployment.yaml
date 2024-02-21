@@ -30,9 +30,9 @@ spec:
           # ports:
           #   - containerPort: 8080
   replicas: 1
-  selector:
-    matchLabels:
-      app: java-spring-app
+  # selector:
+  #   matchLabels:
+  #     app: java-spring-app
 ---
 
 apiVersion: v1
