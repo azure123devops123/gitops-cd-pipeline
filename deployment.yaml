@@ -1,26 +1,24 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: java-spring-app-ingress
-spec:
-  rules:
-  - host: java-spring-app.com
-    http:
-      paths:
-      - backend:
-          serviceName: java-spring-app-service
-          servicePort: 8080
----
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: java-spring-app-ingress
+# spec:
+#   rules:
+#   - host: java-spring-app.com
+#     http:
+#       paths:
+#       - backend:
+#           serviceName: java-spring-app-service
+#           servicePort: 8080
+# ---
               
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: java-spring-app-deployment
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
+  lables:
       app: java-spring-app
+spec:
   template:
     metadata:
       labels:
@@ -29,8 +27,12 @@ spec:
       containers:
         - name: java-spring-app
           image: devopstech24/java-spring-app-ci-pipeline:60
-          ports:
-            - containerPort: 8080
+          # ports:
+          #   - containerPort: 8080
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-spring-app
 ---
 
 apiVersion: v1
@@ -38,11 +40,11 @@ kind: Service
 metadata:
   name: java-spring-app-service
 spec:
-  selector:
-    app: java-spring-app
   type: NodePort
   ports:
-    - protocol: TCP
+    # - protocol: TCP
+   -  targetPort: 8080
       port: 8080
-      targetPort: 8080
       nodePort: 30008
+  selector:
+      app: java-spring-app
