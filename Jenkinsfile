@@ -30,9 +30,9 @@ pipeline {
                 // always use double quotes below otherwise it will not work properly
                 // Stream EDitor (sed) => sed -i 's/old-text/new-text/g' input.txt
                 sh """
-                    cat deployment.yaml
-                    sed -i 's/${APPLICATION_NAME}.*/${APPLICATION_NAME}:${IMAGE_TAG}/g' deployment.yaml
-                    cat deployment.yaml
+                    cat java-spring-app.yaml
+                    sed -i 's/${APPLICATION_NAME}.*/${APPLICATION_NAME}:${IMAGE_TAG}/g' java-spring-app.yaml
+                    cat java-spring-app.yaml
                 """
             }
         }
@@ -44,7 +44,7 @@ pipeline {
                 sh """
                     git config --global user.name '${GITHUB_USERNAME}'
                     git config --global user.email "${EMAIL}"
-                    git add deployment.yaml
+                    git add java-spring-app.yaml
                     git commit -m "Updated Deployment Manifest"
                 """
                 // Use Snippet Generator for code => withCredentials
