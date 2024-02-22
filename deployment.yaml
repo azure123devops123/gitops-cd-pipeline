@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: java-spring-app-deployment
   lables:
-      app: java-spring-app
+    app: java-spring-app
 spec:
   replicas: 3
   selector: 
@@ -16,10 +16,10 @@ spec:
         app: java-spring-app
     spec:
       containers:
-        - name: java-spring-app-container
-          image: devopstech24/java-spring-app-ci-pipeline:1.0.0-64
-          ports:
-          - containerPort: 8080
+      - name: java-spring-app-container
+        image: devopstech24/java-spring-app-ci-pipeline:1.0.0-64
+        ports:
+        - containerPort: 8080
 # Service Config    
 ---
 apiVersion: v1
@@ -27,13 +27,14 @@ kind: Service
 metadata:
   name: java-spring-app-service
   labels:
-      app: java-spring-app
+    app: java-spring-app
 spec:
   type: NodePort
+  selector:
+    app: java-spring-app
   ports:
-   -  protocol: TCP
+    - protocol: TCP
       port: 8080
       targetPort: 8080
       nodePort: 30003
-  selector:
-      app: java-spring-app
+
