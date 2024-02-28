@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: java-spring-app-container
-        image: devopstech24/java-spring-app-ci-pipeline:1.0.0-71
+        image: devopstech24/java-spring-app-ci-pipeline:1.0.0-72
         ports:
         - containerPort: 8080
 # Service Config    
