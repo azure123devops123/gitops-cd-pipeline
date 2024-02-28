@@ -20,7 +20,7 @@ spec:
         image: nginx  
         # devopstech24/java-spring-app-ci-pipeline:1.0.0-69
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 # Service Config    
 ---
 apiVersion: v1
@@ -35,7 +35,7 @@ spec:
     app: java-spring-app
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
-      nodePort: 30010
+      port: 80
+      targetPort: 80
+      nodePort: 30011
 
